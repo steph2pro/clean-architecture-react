@@ -5,7 +5,7 @@ import { userValidationSchema } from '../validation/userValidation'; // Importer
 
 interface AddUserModalProps {
   onClose: () => void;
-  onAddUser: (user: { name: string; prenom: string; email: string }) => void;
+  onAddUser: (user: { name: string; prenom: string; email: string; ville: string }) => void;
 }
 
 const AddUserModal: React.FC<AddUserModalProps> = ({ onClose, onAddUser }) => {
@@ -14,6 +14,7 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ onClose, onAddUser }) => {
       name: '',
       email: '',
       prenom:'',
+      ville:'', 
     },
     validationSchema: userValidationSchema, // Utiliser le schéma importé
     onSubmit: (values) => {
@@ -70,6 +71,22 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ onClose, onAddUser }) => {
             />
             {formik.touched.email && formik.errors.email ? (
               <div className="text-red-500 text-sm">{formik.errors.email}</div>
+            ) : null}
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700">Ville</label>
+            <input
+              type="text"
+              name="ville"
+              value={formik.values.ville}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              required
+              className={"mt-1 block w-full p-2 border ${formik.touched.ville && formik.errors.ville ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm"}
+            />
+            {formik.touched.ville && formik.errors.ville ? (
+              <div className="text-red-500 text-sm">{formik.errors.ville}</div>
             ) : null}
           </div>
           <div className="flex justify-end space-x-2">

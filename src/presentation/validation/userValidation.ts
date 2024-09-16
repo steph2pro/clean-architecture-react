@@ -14,4 +14,7 @@ prenom: Yup.string()
   email: Yup.string()
     .required('L\'email est requis')
     .email('L\'email doit être valide'),
+  ville: Yup.string()
+    .required('La ville est requis')
+    .matches(/^[a-zA-Z\s]+$/, 'La ville ne peut contenir que des lettres et des espaces'),
 });

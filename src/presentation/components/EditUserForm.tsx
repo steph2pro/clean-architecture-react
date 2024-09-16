@@ -110,6 +110,7 @@ const EditUserForm: React.FC<EditUserFormProps> = ({ user, onClose }) => {
     name: '',
     prenom: '', // Initialiser `prenom`
     email: '',
+    ville: '',
   });
 
   const mutation = useUpdateUser();
@@ -121,6 +122,7 @@ const EditUserForm: React.FC<EditUserFormProps> = ({ user, onClose }) => {
         name: user.name,
         prenom: user.prenom, // Récupérer le `prenom` de l'utilisateur
         email: user.email,
+        ville: user.ville,
       });
     }
   }, [user]);
@@ -145,6 +147,7 @@ const EditUserForm: React.FC<EditUserFormProps> = ({ user, onClose }) => {
     <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
       <h2 className="text-2xl font-bold mb-4">Modifier l'utilisateur</h2>
       <form onSubmit={handleSubmit}>
+       
         {/* Champ pour le nom */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">Nom</label>
@@ -180,6 +183,19 @@ const EditUserForm: React.FC<EditUserFormProps> = ({ user, onClose }) => {
             required
           />
         </div>
+         {/* Champ pour le ville */}
+         <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Ville</label>
+          <input
+            type="text"
+            value={formData.ville || ''}
+            onChange={(e) => setFormData({ ...formData, ville: e.target.value })}
+            className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        
 
         {/* Boutons d'action */}
         <div className="flex justify-end space-x-2">
@@ -187,7 +203,7 @@ const EditUserForm: React.FC<EditUserFormProps> = ({ user, onClose }) => {
             Annuler
           </button>
           <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-md">
-            {mutation.status=='pending' ? 'En cours...' : 'Modifier'}
+            {mutation.status=='pending' ? 'En attente...' : 'Modifier'}
           </button>
         </div>
       </form>
