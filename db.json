@@ -2,7 +2,7 @@
   "users": [
     {
       "name": "Jane Smith",
-      "prenom": "djomo2",
+      "prenom": "djomo22",
       "email": "jane@example.com",
       "id": "2"
     },
@@ -21,12 +21,6 @@
       "id": "5",
       "name": "Charlie Davis",
       "email": "charlie@example.com"
-    },
-    {
-      "name": "Diana Evans",
-      "prenom": "ee",
-      "email": "diana@example.com",
-      "id": "6"
     },
     {
       "id": "7",
