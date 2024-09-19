@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import UserList from '../components/UserList';
 import AddUserModal from '../components/AddUserModal';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import Http from '../../services/Http';
-import { User } from '../../data/models/User';
+import {Http} from '../../services/Http';
+import  User  from '../../data/models/User';
 
 const USERS_QUERY_KEY = ['users'];
 
@@ -67,11 +67,10 @@ const UserPage: React.FC = () => {
           {errorMessage}
         </div>
       )}
-
-      <UserList 
+{/* 
         onDeleteSuccess={handleDeleteSuccess} // Passe la fonction de succès à UserList
-        onDeleteError={handleDeleteError}    // Passe la fonction d'erreur à UserList
-      />
+        onDeleteError={handleDeleteError}    // Passe la fonction d'erreur à UserList */}
+      <UserList/>
       
       {isModalOpen && (
         <AddUserModal

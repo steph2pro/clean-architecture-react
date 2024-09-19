@@ -2,7 +2,7 @@
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { DeleteUserUseCase } from '../../domain/usecases/DeleteUserUseCase';
-import { UserRepository } from '../../data/repositories/UserRepository';
+import { UserRepository } from '../../data/repositories/UserRepositoryImpl';
 
 export const useDeleteUser = () => {
   const queryClient = useQueryClient();

@@ -1,32 +1,19 @@
-// // Importation de l'interface du repository UserRepository
-// import { UserRepository } from '../repositories/UserRepository';
 
-// // Importation du modèle User
-// import { User } from '../../data/models/User';
+import User from '../../data/models/User';
+import  UserRepositoryImpl  from '../../data/repositories/UserRepositoryImpl';
 
-// // Classe qui représente le cas d'utilisation de récupération des utilisateurs
-// export class GetUsersUseCase {
-//   // Le repository est passé en paramètre lors de l'instanciation
-//   constructor(private userRepository: UserRepository) {}
+import {  useQuery } from '@tanstack/react-query';
 
-//   // Méthode pour exécuter le cas d'utilisation
-//   execute(): Promise<User[]> {
-//     // Appelle la méthode getUsers du repository
-//     return this.userRepository.getUsers();
-//   }
-// }
 
-import { UserRepository } from '../../data/repositories/UserRepository';
-import { User } from '../../data/models/User';
-
-export class GetUsersUseCase {
-  private userRepository: UserRepository;
-
-  constructor() {
-    this.userRepository = new UserRepository();
-  }
-
-  async execute(): Promise<User[]> {
-    return await this.userRepository.getUsers();
-  }
+export const getUsersUseCase= (repository : UserRepositoryImpl) =>{
+  return  useQuery<User[], Error>({
+        queryKey: ['users'],  // Clé unique pour la requête
+        queryFn: async () => repository.getUsers(), // Fonction pour récupérer les utilisateurs
+      });
+  
+  // useMutation({
+  //   mutationFn: async ()=>{
+  //     return await repository.getUsers();
+  //   }
+  // })
 }

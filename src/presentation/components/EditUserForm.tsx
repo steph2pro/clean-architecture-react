@@ -96,7 +96,7 @@
 // };
 
 import React, { useState, useEffect } from 'react';
-import { User } from '../../data/models/User';
+import  User  from '../../data/models/User';
 import { useUpdateUser } from '../hooks/useUpdateUser';
 
 interface EditUserFormProps {

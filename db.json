@@ -33,9 +33,8 @@
     },
     {
       "id": "8",
-      "ville": "yaounde",
-      "name": "Grace Harris",
       "ville": "baham",
+      "name": "Grace Harris",
       "email": "grace@example.com"
     },
     {
@@ -162,6 +161,13 @@
       "name": "talla22",
       "ville": "baffousam",
       "id": "e398"
+    },
+    {
+      "id": "9fd9",
+      "name": "stephane",
+      "email": "marius@gmail.com",
+      "prenom": "stephane",
+      "ville": "badjoun"
     }
   ]
 }
