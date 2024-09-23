@@ -1,8 +1,8 @@
 // src/presentation/hooks/useDeleteUser.ts
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { DeleteUserUseCase } from '../../domain/usecases/DeleteUserUseCase';
-import { UserRepository } from '../../data/repositories/UserRepositoryImpl';
+import { deleteUserUseCase } from '../../domain/usecases/DeleteUserUseCase';
+import  UserRepositoryImpl  from '../../data/repositories/UserRepositoryImpl';
 
 export const useDeleteUser = () => {
   const queryClient = useQueryClient();

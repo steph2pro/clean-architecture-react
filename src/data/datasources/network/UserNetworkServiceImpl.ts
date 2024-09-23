@@ -20,6 +20,11 @@ export default class UserNetworkServiceImpl implements UserNetworkService {
         async deleteUser  (id: number): Promise<void>  {
         await Http.delete(`${this.apiUrl}/${id}`); // Utilisation de Http.delete
       };
+       // Méthode pour ajouter un utilisateur
+  async createUser(newUser: Partial<User>): Promise<User> {
+    const response = await Http.post<User>(this.apiUrl, newUser); // Utilisation de Http.post
+    return response.data;
+  }
 
 }
 

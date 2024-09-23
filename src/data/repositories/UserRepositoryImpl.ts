@@ -20,4 +20,8 @@ export default class UserRepositoryImpl implements UserRepository {
   async deleteUser(id: number): Promise<void> {  // Utilisation de la méthode delete
     await this.dataSource.deleteUser(id);
   }
+   // Méthode pour ajouter un utilisateur
+   async createUser(newUser: Partial<User>): Promise<User> {
+    return await this.dataSource.createUser(newUser);
+  }
 }

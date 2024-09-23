@@ -5,15 +5,22 @@ import AddUserModal from '../components/AddUserModal';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import {Http} from '../../services/Http';
 import  User  from '../../data/models/User';
-
+import AddUser from './addUser';
+import { Modal } from "../components/modal"; 
 const USERS_QUERY_KEY = ['users'];
 
 const UserPage: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // État pour gérer l'ouverture de la modale
+  // const [isModalOpen, setIsModalOpen] = useState(false); // État pour gérer l'ouverture de la modale
   const [successMessage, setSuccessMessage] = useState(''); // État pour le message de succès général
   const [errorMessage, setErrorMessage] = useState(''); // État pour le message d'erreur
   const queryClient = useQueryClient();
+//
+const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // Fonction pour ouvrir et fermer la modale
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
   // Utilisation de useMutation pour gérer l'ajout d'un utilisateur
   const mutation = useMutation({
     mutationFn: (newUser: Omit<User, 'id'>) => Http.post('/users', newUser), // On omet 'id' lors de la création
@@ -50,7 +57,7 @@ const UserPage: React.FC = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">Gestion des utilisateurs</h1>
       <button
-        onClick={() => setIsModalOpen(true)}
+        onClick={toggleModal}
         className="mb-4 px-4 py-2 bg-green-500 text-white rounded-md"
       >
         Ajouter un utilisateur
@@ -73,10 +80,13 @@ const UserPage: React.FC = () => {
       <UserList/>
       
       {isModalOpen && (
-        <AddUserModal
-          onClose={() => setIsModalOpen(false)}
-          onAddUser={handleAddUser}
+        <Modal onClick={toggleModal} isBig={true}>
+
+        <AddUser
+          // onClose={() => setIsModalOpen(false)}
+          // onAddUser={handleAddUser}
         />
+        </Modal>
       )}
     </div>
   );
