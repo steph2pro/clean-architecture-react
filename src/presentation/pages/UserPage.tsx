@@ -54,23 +54,23 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Gestion des utilisateurs</h1>
+    <div className="container p-4 mx-auto">
+      <h1 className="mb-4 text-3xl font-bold">Gestion des utilisateurs</h1>
       <button
         onClick={toggleModal}
-        className="mb-4 px-4 py-2 bg-green-500 text-white rounded-md"
+        className="px-4 py-2 mb-4 text-white bg-green-500 rounded-md"
       >
         Ajouter un utilisateur
       </button>
       
       {successMessage && (
-        <div className="mb-4 p-2 bg-green-200 text-green-800 rounded-md">
+        <div className="p-2 mb-4 text-green-800 bg-green-200 rounded-md">
           {successMessage}
         </div>
       )}
 
       {errorMessage && (
-        <div className="mb-4 p-2 bg-red-200 text-red-800 rounded-md">
+        <div className="p-2 mb-4 text-red-800 bg-red-200 rounded-md">
           {errorMessage}
         </div>
       )}
@@ -82,10 +82,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       {isModalOpen && (
         <Modal onClick={toggleModal} isBig={true}>
 
-        <AddUser
-          // onClose={() => setIsModalOpen(false)}
-          // onAddUser={handleAddUser}
-        />
+        <AddUser/>
         </Modal>
       )}
     </div>

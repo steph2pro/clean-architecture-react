@@ -36,7 +36,7 @@ function useAddController() {
     const onSubmit = async (data: User) => {
         if (add.isSuccess) return;
         await add.mutateAsync(data)
-        console.log(add)
+        // console.log(add)
         navigate(STRING_ROUTE_USERS)
     };
 

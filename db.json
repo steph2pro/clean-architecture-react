@@ -1,32 +1,6 @@
 {
   "users": [
     {
-      "name": "Jane Smith",
-      "prenom": "djomo22",
-      "email": "jane@example.com",
-      "ville": "baffousam",
-      "id": "2"
-    },
-    {
-      "name": "Alice Johnson",
-      "prenom": "doe",
-      "ville": "baham",
-      "email": "alice@example.com",
-      "id": "3"
-    },
-    {
-      "id": "4",
-      "name": "Bob Brown",
-      "ville": "yaounde",
-      "email": "bob@example.com"
-    },
-    {
-      "id": "5",
-      "name": "Charlie Davis",
-      "ville": "baham",
-      "email": "charlie@example.com"
-    },
-    {
       "id": "7",
       "name": "Frank Green",
       "email": "frank@example.com"
@@ -168,41 +142,6 @@
       "email": "marius@gmail.com",
       "prenom": "stephane",
       "ville": "badjoun"
-    },
-    {
-      "id": "3ee1",
-      "email": "marius@gmail.com",
-      "name": "stephanepro",
-      "prenom": "stephane",
-      "ville": "badjoun2"
-    },
-    {
-      "id": "68bf",
-      "email": "marius@gmail.com",
-      "name": "stephane",
-      "prenom": "stephane",
-      "ville": "badjoun2"
-    },
-    {
-      "id": "4d38",
-      "email": "marius@gmail.com",
-      "name": "stephane",
-      "prenom": "stephane",
-      "ville": "badjoun2"
-    },
-    {
-      "id": "90f3",
-      "email": "marius@gmail.com",
-      "name": "stephane",
-      "prenom": "stephane",
-      "ville": "badjoun2"
-    },
-    {
-      "id": "7940",
-      "email": "marius@gmail.com",
-      "name": "stephane",
-      "prenom": "stephane",
-      "ville": "badjoun2"
     }
   ]
 }

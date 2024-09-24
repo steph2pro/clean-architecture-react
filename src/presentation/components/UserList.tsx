@@ -6,6 +6,7 @@ import { useUsers } from '../hooks/useUsers';
 import  User  from '../../data/models/User';
 // import EditUserForm from './EditUserForm';
 import FilterUsers from './FilterUsers'; // Import du composant FilterUsers
+import useDeleteController from '../hooks/useDeleteController';
 
 // interface UserListProps {
 //   onDeleteSuccess: (message: string) => void;
@@ -32,13 +33,12 @@ const UserList: React.FC = () => {
 
   // Si on n'a pas encore appliqué de filtre, afficher tous les utilisateurs
   const displayedUsers = filteredUsers.length ? filteredUsers : users || [];
+  //supression
+  const { onDelete } = useDeleteController();
 
   // const handleDelete = (id: number) => {
   //   if (confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) {
-  //     deleteUserMutation.mutate(id, {
-  //       onSuccess: () => onDeleteSuccess('Utilisateur supprimé avec succès !'),
-  //       onError: () => onDeleteError('Erreur lors de la suppression de l\'utilisateur'),
-  //     });
+      
   //   }
   // };
 
@@ -65,14 +65,15 @@ const UserList: React.FC = () => {
       Cell: ({ row }: any) => (
         <div className="flex space-x-2">
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded"
+            className="px-4 py-2 text-white bg-blue-500 rounded"
             onClick={() => setEditingUser(row.original)}
           >
             Modifier
           </button>
           <button
-            className="bg-red-500 text-white px-4 py-2 rounded"
+            className="px-4 py-2 text-white bg-red-500 rounded"
             // onClick={() => handleDelete(row.original.id)}
+            onClick={() => onDelete(row.original.id)}
           >
             Supprimer
           </button>
@@ -99,12 +100,12 @@ const UserList: React.FC = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Liste des utilisateurs</h1>
+      <h1 className="mb-4 text-2xl font-bold">Liste des utilisateurs</h1>
 
       {/* Intégration du composant de filtre */}
       <FilterUsers onFilter={handleFilter} />
 
-      <table {...getTableProps()} className="table-auto w-full bg-white shadow-md rounded border-collapse">
+      <table {...getTableProps()} className="w-full bg-white border-collapse rounded shadow-md table-auto">
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()} className="bg-gray-100">
@@ -133,7 +134,7 @@ const UserList: React.FC = () => {
       </table>
 
       {/* {editingUser && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
           <EditUserForm user={editingUser} onClose={() => setEditingUser(null)} />
         </div>
       )} */}
